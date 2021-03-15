@@ -1,25 +1,67 @@
+import React,{useState} from 'react'; // if this line not have then make Add Same place There:
+
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const PriceInfo =[
+    {name:'Iphone X-321', Price:'$1140'},
+    {name:'Ipad X-421', Price :' $800'}
+  
+  
+  ]
+  
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h1>Apple Store</h1>
+      
+        <Counter></Counter> 
+
+      {
+      PriceInfo.map(PriceInfos => <li>{PriceInfos.name}</li>
+        
+        )
+      }
+
+    <Iteams name = {PriceInfo[0].name} price ={PriceInfo[0].Price}></Iteams>
+    <Iteams name = {PriceInfo[1].name} price ={PriceInfo[1].Price}></Iteams>
       </header>
     </div>
-  );
+  ); 
+}
+function Counter (){
+const [count, setCount] = useState(18);
+  return (
+
+    <div>
+      <h1> Count:{count}</h1>
+    </div>
+  )
+}
+function Iteams(props){
+const ProductDesign ={
+
+  border : '1px solid gray',
+  borderRadius: '5px',
+  backgroundColor: 'lightgray',
+  height:'250px',
+  width:'400px',
+  margin:'10px',
+  float:'left'
+
 }
 
+return(
+    <div style = {ProductDesign}>
+  
+  <h2>{props.name}</h2>
+  <h1>{props.price} </h1>
+  <button>Buy Now </button>
+
+  </div>
+  )
+}
+ 
 export default App;
