@@ -35,17 +35,24 @@ function Counter (){
 const [count, setCount] = useState(18);
 //const handaler =() => console.log('clicked'); // this line help of looking on console.log webpage in inspact:
 
-const handaler =() =>{
+const IncraseHandaler =() =>{
 
   const newCount =count+1;
   setCount(newCount);
 }
+const DecraseHandaler =() =>{
+
+  const newCount =count-1;
+  setCount(newCount);
+}
+
 
   return (
 
     <div>
       <h1> Count:{count}</h1>
-      <button onClick = {handaler}>Incrase</button>
+      <button onClick = {IncraseHandaler}>Incrase</button>
+      <button onClick = {DecraseHandaler}>decrase</button>
     </div>
   )
 }
